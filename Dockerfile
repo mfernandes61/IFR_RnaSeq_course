@@ -16,10 +16,16 @@ RUN mkdir /tools /course_material
 RUN apt-get update && apt-get install -y samtools bowtie2 git
 # zlib1g-dev
 
-# Install Topha, cufflinks, samtools, igv viewer, htseqc-count, DESeq2, DEXXSeq, STAR
+# Install Topha, cufflinks, samtools, igv viewer, htseqc-count, DESeq2, DEXXSeq, STAR, bowtie
 # original course used Zebrafish data from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18508
+# for igv update /etc/apt/sources.list to include multiverse
+# deb http://us.archive.ubuntu.com/ubuntu vivid main multiverse & then apt-get install igv
+# 
+# Install STAR git clone https://github.com/alexdobin/STAR.git && cd STAR && make STAR
 #
 # instal htslib & bcftools from source (do for Samtools also?)
+# add Biolinux ppa
+#
 RUN cd /tools && git clone https://github.com/samtools/htslib.git  && git clone https://github.com/samtools/bcftools.git  
 RUN git clone https://github.com/samtools/samtools.git
 RUN mkdir /usr/local/bin/plugins
