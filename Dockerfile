@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y samtools tophat r-base git
 # instal htslib & bcftools from source (do for Samtools also?)
 # add Biolinux ppa
 #
-RUN cd /tools && git clone https://github.com/alexdobin/STAR.git ./ && Ls && cd /tools/STAR && make STAR
+RUN cd /tools && git clone https://github.com/alexdobin/STAR.git ./ && ls && cd /tools/STAR && make STAR
 # RUN cd /tools && git clone https://github.com/samtools/htslib.git  && git clone https://github.com/samtools/bcftools.git  
 # RUN git clone https://github.com/samtools/samtools.git
 RUN mkdir /usr/local/bin/plugins
