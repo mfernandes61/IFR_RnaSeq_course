@@ -15,7 +15,6 @@ ENV COURSEDIR=/home/guest
 COPY welcome.txt /etc/motd
 RUN mkdir /tools /course_material
 RUN apt-get update && apt-get install -y samtools tophat r-base git
-# zlib1g-dev
 
 # Install Topha, cufflinks, samtools, igv viewer, htseqc-count, DESeq2, DEXXSeq, STAR, bowtie
 # original course used Zebrafish data from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18508
