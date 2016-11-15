@@ -1,0 +1,8 @@
+Welcome to the IFR Dockerised version of the EBI's  
+Introduction to RNA-seq course!
+
+You will need to mount /home to your C:\User directory in Kitematic Settings dialogue
+You may also need to download the sequence data from the web
+
+Mark Fernandes IFR Nov 2016
+
