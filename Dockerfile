@@ -2,6 +2,7 @@ FROM foodresearch/bppc
 MAINTAINER Mark Fernandes <mark.fernandes@ifr.ac.uk>
 #
 # Docker environment for intro to RnaSeq course
+# Based upon http://www.ebi.ac.uk/training/online/course/ebi-next-generation-sequencing-practical-course/rna-sequencing/rna-seq-analysis-transcriptome 
 #
 USER root 
 ENV   SIAB_USER=guest \
