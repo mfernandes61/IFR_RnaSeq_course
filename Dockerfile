@@ -13,7 +13,7 @@ ENV COURSEDIR=/home/guest
 
 COPY welcome.txt /etc/motd
 RUN mkdir /tools /course_material
-RUN apt-get update && apt-get install -y samtools bowtie2 git
+RUN apt-get update && apt-get install -y samtools tophat r-base git
 # zlib1g-dev
 
 # Install Topha, cufflinks, samtools, igv viewer, htseqc-count, DESeq2, DEXXSeq, STAR, bowtie
@@ -26,12 +26,13 @@ RUN apt-get update && apt-get install -y samtools bowtie2 git
 # instal htslib & bcftools from source (do for Samtools also?)
 # add Biolinux ppa
 #
-RUN cd /tools && git clone https://github.com/samtools/htslib.git  && git clone https://github.com/samtools/bcftools.git  
+RUN cd /tools && git clone https://github.com/alexdobin/STAR.git ./ && CD STAR && make STAR
+# RUN cd /tools && git clone https://github.com/samtools/htslib.git  && git clone https://github.com/samtools/bcftools.git  
 RUN git clone https://github.com/samtools/samtools.git
 RUN mkdir /usr/local/bin/plugins
-RUN cd /tools/htslib && make install
+# RUN cd /tools/htslib && make install
 # RUN cd /tools/bcftools && make install
-RUN cd /course_material && git clone https://github.com/ecerami/samtools_primer.git ./
+#RUN cd /course_material && git clone https://github.com/ecerami/samtools_primer.git ./
 
 # Hopefully that's all pre-requisites in place
 # RUN chown -R guest.guest $COURSEDIR
