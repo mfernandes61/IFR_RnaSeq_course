@@ -14,11 +14,12 @@ ENV COURSEDIR=/home/guest
 
 COPY welcome.txt /etc/motd
 RUN mkdir /tools /course_material
-RUN apt-get update && apt-get install -y samtools tophat r-base git cufflinks bowtie
+RUN apt-get update && apt-get install -y samtools tophat r-base git cufflinks bowtie wget
 
 # Install Tophat, cufflinks, samtools, igv viewer, htseqc-count, DESeq2, DEXXSeq, STAR, bowtie
 # original course used Zebrafish data from http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18508
 # for igv update /etc/apt/sources.list to include multiverse
+RUN cd /course_material && wget ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/*
 # deb http://us.archive.ubuntu.com/ubuntu vivid main multiverse & then apt-get install igv
 # 
 # Install STAR git clone https://github.com/alexdobin/STAR.git && cd STAR && make STAR
