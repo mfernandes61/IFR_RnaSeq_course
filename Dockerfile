@@ -56,7 +56,8 @@ VOLUME /Coursedata
 # Install STAR git clone https://github.com/alexdobin/STAR.git && cd STAR && make STAR
 
 #
-RUN cd /tools && git clone https://github.com/alexdobin/STAR.git ./ && pwd &&  ls && cd source && make
+RUN cd /tools && git clone https://github.com/alexdobin/STAR.git ./ && pwd &&  ls && cd source && make && \
+	ln -s /tools/bin/Linux_x86_64/*  /usr/local/bin
 # RUN cd /tools && git clone https://github.com/samtools/htslib.git  && git clone https://github.com/samtools/bcftools.git  
 # RUN git clone https://github.com/samtools/samtools.git
 RUN mkdir /usr/local/bin/plugins
