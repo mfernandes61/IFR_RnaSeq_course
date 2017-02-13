@@ -22,7 +22,7 @@ RUN \
 
 RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-base-dev samtools fastqc \
 		bcftools libcurl4-openssl-dev libxml2-dev igv bowtie2 tophat cufflinks evince \
-		build-essential python2.7-dev python-numpy python-matplotlib python-pip \
+		build-essential python-numpy python-matplotlib python-pip \
 		ipython ipython-notebook 
 RUN	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #
