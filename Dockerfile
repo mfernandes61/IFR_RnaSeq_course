@@ -20,10 +20,7 @@ RUN \
 	add-apt-repository  "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse" && \
 	add-apt-repository  "deb http://cran.ma.imperial.ac.uk/bin/linux/ubuntu trusty/"
 
-RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-base-dev samtools fastqc \
-		bcftools libcurl4-openssl-dev libxml2-dev igv bowtie2 tophat cufflinks evince \
-		build-essential python-numpy python-matplotlib python-pip \
-		ipython ipython-notebook 
+RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-base-dev samtools fastqc bcftools libcurl4-openssl-dev libxml2-dev igv bowtie2 tophat cufflinks evince build-essential python-numpy python-matplotlib python-pip ipython ipython-notebook python2.7-dev
 RUN	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #
 # create our folders incl. fastqc folder & files that are not installed by apt-get install fastqc :-(
