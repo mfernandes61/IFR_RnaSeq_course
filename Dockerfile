@@ -20,13 +20,16 @@ RUN \
 	add-apt-repository  "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse" && \
 	add-apt-repository  "deb http://cran.ma.imperial.ac.uk/bin/linux/ubuntu trusty/"
 
-RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-base-dev samtools fastqc  libcurl4-openssl-dev 
-RUN 	apt-get install -y libxml2-dev igv bowtie2 tophat cufflinks evince build-essential python-numpy python-matplotlib python-pip ipython ipython-notebook python2.7-dev
-RUN	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-base-dev samtools fastqc  libcurl4-openssl-dev \
+	libxml2-dev igv bowtie2 tophat cufflinks evince build-essential python-numpy python-matplotlib python-pip ipython \
+	ipython-notebook python2.7-dev && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #
 # create our folders incl. fastqc folder & files that are not installed by apt-get install fastqc :-(
-RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mkdir /course_material && mkdir /tools
+RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mkdir /course_material && mkdir /tools && \
+	mkdir /course_material/genome
 ADD fastqc/* /etc/fastqc/Configuration/
+ADD genome/*.zip /course_material/genome
+RUN cd /course_material/genome && unzip *.zip && rm *.zip
 
 # RUN cd /tools && wget http://www.bioinformatics.babraham.ac.uk/projects/seqmonk/seqmonk_v1.37.0.zip && \
 # 	wget ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.5-Linux_x86_64.zip && unzip seq*.zip && \
