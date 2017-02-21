@@ -26,10 +26,11 @@ RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-bas
 #
 # create our folders incl. fastqc folder & files that are not installed by apt-get install fastqc :-(
 RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mkdir /course_material && mkdir /tools && \
-	mkdir /course_material/genome
+	mkdir /course_material/genome && mkdir /course_material/data
 ADD fastqc/* /etc/fastqc/Configuration/
 ADD genome/*.zip /course_material/genome
-RUN cd /course_material/genome && unzip *.zip && rm *.zip
+ADD *.pynb /course_material
+RUN cd /course_material/genome && unzip *.zip && rm *.zip && chmod o+x /usr/bin/ipython
 
 # RUN cd /tools && wget http://www.bioinformatics.babraham.ac.uk/projects/seqmonk/seqmonk_v1.37.0.zip && \
 # 	wget ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.5-Linux_x86_64.zip && unzip seq*.zip && \
@@ -44,7 +45,7 @@ USER root
 # RUN bash - -c "R -e \"source('http://bioconductor.org/biocLite.R'); biocLite('DESeq2')\""
 # -c means commands read from string 
 
-RUN cd /course_material && wget ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/*
+RUN cd /course_material && wget ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/* && mv *.fastq /course_material/data/
 ADD Welcome.txt /etc/motd
 ADD /scripts/*.sh /scripts/
 RUN chmod +x /scripts/*.sh && ln -s /scripts/add2R /usr/local/bin/
