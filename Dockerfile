@@ -22,7 +22,7 @@ RUN \
 
 RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-base-dev samtools fastqc  libcurl4-openssl-dev \
 	libxml2-dev igv bowtie2 tophat cufflinks evince build-essential python-numpy python-matplotlib python-pip ipython \
-	ipython-notebook python2.7-dev && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
+	ipython-notebook python2.7-dev pandoc && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #
 # create our folders incl. fastqc folder & files that are not installed by apt-get install fastqc :-(
 RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mkdir /course_material && mkdir /tools && \
