@@ -1,0 +1,16 @@
+
+#1#	cp -R /course_material /Coursedata
+#1#	cd /Coursedata
+#1#	ls -l data
+
+#2#	Create the indexed genome using the following command:
+#2#	bowtie2-build genome/Danio_rerio.Zv9.66.dna.fa genome/ZV9
+
+#3#	ls -l genome
+
+#4#	tophat --solexa-quals -g 2 -p 4 --library-type fr-unstranded \
+#4#	-j annotation/Danio_rerio.Zv9.66.spliceSites -o tophat/ZV9_2cells  \
+#4#	genome/ZV9 data/2cells_1.fastq data/2cells_2.fastq
+
+#35	to count the lines reported using pipe to the wc tool
+
