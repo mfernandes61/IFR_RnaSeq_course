@@ -33,14 +33,6 @@ Add help/* /course_material/
 ADD *.ipynb /course_material
 RUN cd /course_material/genome && unzip *.zip && rm *.zip && chmod o+x /usr/bin/ipython
 
-# RUN cd /tools && wget http://www.bioinformatics.babraham.ac.uk/projects/seqmonk/seqmonk_v1.37.0.zip && \
-# 	wget ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.5-Linux_x86_64.zip && unzip seq*.zip && \
-# 	unzip hisat*.zip && rm /tools/*.zip && chmod 755 /tools/Seq*/seqmonk && ln -s /tools/Seq*/seqmonk /usr/local/bin/ && \
-# 	ln -s /tools/hisat2*/* /usr/local/bin/ && mkdir /tools/examples && cd /tools/examples && \
-# 	wget http://www.bioinformatics.babraham.ac.uk/projects/seqmonk/example_seqmonk_data.smk
-# cd /tools/SeqMonk chmod 755 seqmonk and ln -s  to /usr/local/bin/.  ln -s /tools/hisat2*/hisat2 /usr/local/bin/
-
-
 USER root
 #RUN R -e \"source('https://bioconductor.org/biocLite.R'); biocLite('DESeq2')\"
 # RUN bash - -c "R -e \"source('http://bioconductor.org/biocLite.R'); biocLite('DESeq2')\""
@@ -49,6 +41,7 @@ USER root
 RUN cd /course_material && wget ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/* && mv *.fastq /course_material/data/
 ADD Welcome.txt /etc/motd
 ADD /scripts/*.sh /scripts/
+RUN mkdir /home/ubuntu/.config/autostart
 ADD /autostarts/.desktop /home/ubuntu/.config/autostart/.desktop
 RUN chmod +x /scripts/*.sh && ln -s /scripts/add2R /usr/local/bin/
 # RUN add2R.sh
