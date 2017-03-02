@@ -29,6 +29,7 @@ RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mk
 	mkdir /course_material/genome && mkdir /course_material/data
 ADD fastqc/* /etc/fastqc/Configuration/
 ADD genome/*.zip /course_material/genome
+Add help/* /course_material/
 ADD *.ipynb /course_material
 RUN cd /course_material/genome && unzip *.zip && rm *.zip && chmod o+x /usr/bin/ipython
 
