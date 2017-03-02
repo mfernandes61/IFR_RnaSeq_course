@@ -41,7 +41,7 @@ USER root
 RUN cd /course_material && wget ftp://ftp.ebi.ac.uk/pub/training/Train_online/RNA-seq_exercise/* && mv *.fastq /course_material/data/
 ADD Welcome.txt /etc/motd
 ADD /scripts/*.sh /scripts/
-RUN mkdir /home/ubuntu/.config/autostart
+RUN mkdir /home/ubuntu/.config && mkdir /home/ubuntu/.config/autostart
 ADD /autostarts/.desktop /home/ubuntu/.config/autostart/.desktop
 RUN chmod +x /scripts/*.sh && ln -s /scripts/add2R /usr/local/bin/
 # RUN add2R.sh
