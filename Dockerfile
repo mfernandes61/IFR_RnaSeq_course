@@ -43,7 +43,7 @@ ADD Welcome.txt /etc/motd
 ADD /scripts/* /scripts/
 RUN mkdir /home/ubuntu/.config && mkdir /home/ubuntu/.config/autostart
 ADD /autostarts/.desktop /home/ubuntu/.config/autostart/.desktop
-RUN chmod +x /scripts/*.sh && ln -s /scripts/add2R /usr/local/bin/
+RUN chmod +x /scripts/* && ln -s /scripts/* /usr/local/bin/
 # RUN add2R.sh
 
 EXPOSE 22 8888
