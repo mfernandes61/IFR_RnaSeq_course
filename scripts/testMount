@@ -1,0 +1,2 @@
+#! /bin/bash
+MNT=$(df --output='source' /Coursedata | tail -n +2)
