@@ -1,2 +1,3 @@
 #! /bin/bash
-MNT=$(df --output='source' /Coursedata | tail -n +2)
+MNT=$(df --output='source' /Coursedata/ | tail -n-1)
+exit MNT
