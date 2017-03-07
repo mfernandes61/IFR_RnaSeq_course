@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# reveal_answer script by Mark Fernandes IFR Feb 2017
+# I use this to reveal a course topics model answers 
+# in training delivered by ipython notebooks
+#
+#Usage:- reveal_answer <topic number> e.g. reveal_answer 2
+#
+# This simple scripr will select text relating to a
+# specific numbered topic identifying it by the string
+# '#n#' using grep. Having selected those lines it then
+# strips out the identifying tag using sed
+#
+grep '#'$1'#' answer.txt | sed 's/#'$1'#\t//'
