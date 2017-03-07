@@ -2,4 +2,4 @@
 
 Type=Application
 
-Exec=ipython notebook &
+Exec=ipython notebook --notebook-dir=/course_material/ rna_seq_notebook&
