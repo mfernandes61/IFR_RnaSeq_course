@@ -1,5 +1,4 @@
 
-#1#	cp -R /course_material /Coursedata
 #1#	cd /Coursedata
 #1#	ls -l data
 
