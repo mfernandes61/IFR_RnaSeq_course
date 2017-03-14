@@ -29,9 +29,9 @@ RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mk
 	mkdir /course_material/genome && mkdir /course_material/data && mkdir /course_material/annotation && \
 	mkdir /course_material/tophat && mkdir /course_material/tophat/ZV9_2cells && mkdir /course_material/tophat/ZV9_6h
 ADD fastqc/* /etc/fastqc/Configuration/
-ADD genome/*.zip /course_material/genome
+ADD genome/* /course_material/genome/
 ADD help/* /course_material/
-ADD annotation/* /course_material/annotation
+ADD annotation/* /course_material/annotation/
 # ADD *.ipynb /course_material
 RUN cd /course_material/genome && unzip *.zip && rm *.zip && chmod o+x /usr/bin/ipython
 
