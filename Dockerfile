@@ -27,7 +27,7 @@ RUN	apt-get update && apt-get install -y wget git unzip default-jre r-base r-bas
 # create our folders incl. fastqc folder & files that are not installed by apt-get install fastqc :-(
 RUN mkdir /etc/fastqc && mkdir /etc/fastqc/Configuration && mkdir /scripts && mkdir /course_material && mkdir /tools && \
 	mkdir /course_material/genome && mkdir /course_material/data && mkdir /course_material/annotation && \
-	mkdir /course_material/tophat && /course_material/tophat/ZV9_2cells && /course_material/tophat/ZV9_6h
+	mkdir /course_material/tophat && mkdir /course_material/tophat/ZV9_2cells && mkdir /course_material/tophat/ZV9_6h
 ADD fastqc/* /etc/fastqc/Configuration/
 ADD genome/*.zip /course_material/genome
 ADD help/* /course_material/
